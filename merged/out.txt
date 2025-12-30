@@ -1,0 +1,322 @@
+================================================================================
+                               RSA IMPLEMENTATION                               
+================================================================================
+
+------------------------- Processing KEY1 -------------------------
+
+Primes: p=25117, q=25601
+Modulus N: 643020317
+Public exponent e: 65537
+Calculated private key d: 489705473
+Key verification: PASSED
+
+Test encryption/decryption:**************************************************
+  Original message: 12345678
+  Encrypted: 543702163
+  Decrypted: 12345678
+  Match: YES
+
+Measuring performance (10000 repetitions)...
+  Average encryption time: 658.5093 nanoseconds
+  Average decryption time: 1279.0838 nanoseconds
+
+------------------------- Processing KEY2 -------------------------
+
+Primes: p=131071, q=131129
+Modulus N: 17187209159
+Public exponent e: 65537
+Calculated private key d: 15834271793
+Key verification: PASSED
+
+Test encryption/decryption:**************************************************
+  Original message: 12345678
+  Encrypted: 51126344
+  Decrypted: 12345678
+  Match: YES
+
+Measuring performance (10000 repetitions)...
+  Average encryption time: 1669.3046 nanoseconds
+  Average decryption time: 4615.9407 nanoseconds
+
+------------------------- Processing KEY3 -------------------------
+
+Primes: p=262139, q=262151
+Modulus N: 68720000989
+Public exponent e: 65537
+Calculated private key d: 24051869273
+Key verification: PASSED
+
+Test encryption/decryption:**************************************************
+  Original message: 12345678
+  Encrypted: 41804893686
+  Decrypted: 12345678
+  Match: YES
+
+Measuring performance (10000 repetitions)...
+  Average encryption time: 1596.2819 nanoseconds
+  Average decryption time: 4665.1396 nanoseconds
+
+================================================================================
+
+------------------------- SUMMARY TABLE -------------------------
+Key      | N               | Bits   | Enc (ns)     | Dec (ns)    
+key1     | 643020317       | 30     | 658.5093     | 1279.0838   
+key2     | 17187209159     | 35     | 1669.3046    | 4615.9407   
+key3     | 68720000989     | 37     | 1596.2819    | 4665.1396   
+
+Private Keys Summary
+key1: d = 489705473
+key2: d = 15834271793
+key3: d = 24051869273
+
+Notes:
+- All timing measurements use the same message: 12345678
+- Each measurement is averaged over 10,000 repetitions
+- Extended Euclidean Algorithm is used to compute modular inverse
+
+================================================================================
+                               QS IMPLEMENTATION                                
+================================================================================
+
+==================================================
+PROCESSING N = 643020317 (30 bits)
+==================================================
+Dynamic Smoothness Bound B: 250
+Target Relations: 58
+Root of N: 25357
+  > Sieving starting at x=25358...
+
+--- Summary of Relations Found ---
+x = 25358      | (x^2 - N) = 7847         | Factors: 7^1 * 19^1 * 59^1
+x = 25359      | (x^2 - N) = 58564        | Factors: 2^2 * 11^4
+x = 25361      | (x^2 - N) = 160004       | Factors: 2^2 * 13^1 * 17^1 * 181^1
+x = 25373      | (x^2 - N) = 768812       | Factors: 2^2 * 11^1 * 101^1 * 173^1
+x = 25384      | (x^2 - N) = 1327139      | Factors: 11^1 * 17^1 * 47^1 * 151^1
+x = 25391      | (x^2 - N) = 1682564      | Factors: 2^2 * 13^2 * 19^1 * 131^1
+x = 25410      | (x^2 - N) = 2647783      | Factors: 19^1 * 23^1 * 73^1 * 83^1
+x = 25413      | (x^2 - N) = 2800252      | Factors: 2^2 * 7^3 * 13^1 * 157^1
+x = 25417      | (x^2 - N) = 3003572      | Factors: 2^2 * 11^1 * 13^1 * 59^1 * 89^1
+x = 25434      | (x^2 - N) = 3868039      | Factors: 7^1 * 19^1 * 127^1 * 229^1
+... and 48 more relations.
+
+Attempting to solve via Gaussian Elimination...
+
+[Step 1] Calculating X (Product of relations)...
+   Using 9 relations.
+[25985, 25854, 26821, 25742, 25535, 25681, 25384, 25361, 25673]
+   X = 315640084
+
+[Step 2] Calculating Y (Square root of combined factors)...
+   Y = 327380233
+
+[Step 3] The Final Reveal (GCD of X-Y and N)...
+   FAILURE: Found trivial factor (1).
+   X = Y (mod N) or X = -Y (mod N).
+   Retrying with different combination of relations...
+------------------------------
+SUCCESS! FACTORS FOUND (Attempt 2):
+   p = 25117
+   q = 25601
+Verification: 25117 * 25601 = 643020317
+------------------------------
+
+==================================================
+PROCESSING N = 17187209159 (35 bits)
+==================================================
+Dynamic Smoothness Bound B: 446
+Target Relations: 91
+Root of N: 131099
+  > Sieving starting at x=131100...
+
+--- Summary of Relations Found ---
+x = 131100     | (x^2 - N) = 841          | Factors: 29^2
+x = 131101     | (x^2 - N) = 263042       | Factors: 2^1 * 13^1 * 67^1 * 151^1
+x = 131102     | (x^2 - N) = 525245       | Factors: 5^1 * 7^1 * 43^1 * 349^1
+x = 131106     | (x^2 - N) = 1574077      | Factors: 47^1 * 107^1 * 313^1
+x = 131109     | (x^2 - N) = 2360722      | Factors: 2^1 * 7^2 * 13^1 * 17^1 * 109^1
+x = 131110     | (x^2 - N) = 2622941      | Factors: 31^1 * 211^1 * 401^1
+x = 131114     | (x^2 - N) = 3671837      | Factors: 13^1 * 41^1 * 83^2
+x = 131116     | (x^2 - N) = 4196297      | Factors: 7^1 * 17^1 * 179^1 * 197^1
+x = 131122     | (x^2 - N) = 5769725      | Factors: 5^2 * 13^1 * 41^1 * 433^1
+x = 131150     | (x^2 - N) = 13113341     | Factors: 17^1 * 31^1 * 149^1 * 167^1
+... and 81 more relations.
+
+Attempting to solve via Gaussian Elimination...
+
+[Step 1] Calculating X (Product of relations)...
+   Using 14 relations.
+[131163, 132903, 132877, 131172, 132376, 131472, 131534, 133449, 131327, 131153, 131972, 132203, 132691, 131778]
+   X = 1167234879
+
+[Step 2] Calculating Y (Square root of combined factors)...
+   Y = 6285855394
+
+[Step 3] The Final Reveal (GCD of X-Y and N)...
+------------------------------
+SUCCESS! FACTORS FOUND (Attempt 1):
+   p = 131129
+   q = 131071
+Verification: 131129 * 131071 = 17187209159
+------------------------------
+
+==================================================
+PROCESSING N = 68720000989 (37 bits)
+==================================================
+Dynamic Smoothness Bound B: 563
+Target Relations: 108
+Root of N: 262144
+  > Sieving starting at x=262145...
+
+--- Summary of Relations Found ---
+x = 262145     | (x^2 - N) = 36           | Factors: 2^2 * 3^2
+x = 262146     | (x^2 - N) = 524327       | Factors: 37^2 * 383^1
+x = 262166     | (x^2 - N) = 11010567     | Factors: 3^1 * 97^1 * 157^1 * 241^1
+x = 262167     | (x^2 - N) = 11534900     | Factors: 2^2 * 5^2 * 13^1 * 19^1 * 467^1
+x = 262180     | (x^2 - N) = 18351411     | Factors: 3^1 * 13^1 * 31^1 * 43^1 * 353^1
+x = 262181     | (x^2 - N) = 18875772     | Factors: 2^2 * 3^2 * 37^2 * 383^1
+x = 262183     | (x^2 - N) = 19924500     | Factors: 2^2 * 3^1 * 5^3 * 37^1 * 359^1
+x = 262214     | (x^2 - N) = 36180807     | Factors: 3^1 * 13^1 * 19^1 * 157^1 * 311^1
+x = 262217     | (x^2 - N) = 37754100     | Factors: 2^2 * 3^4 * 5^2 * 59^1 * 79^1
+x = 262223     | (x^2 - N) = 40900740     | Factors: 2^2 * 3^1 * 5^1 * 43^1 * 83^1 * 191^1
+... and 98 more relations.
+
+Attempting to solve via Gaussian Elimination...
+
+[Step 1] Calculating X (Product of relations)...
+   Using 1 relations.
+[262145]
+   X = 262145
+
+[Step 2] Calculating Y (Square root of combined factors)...
+   Y = 6
+
+[Step 3] The Final Reveal (GCD of X-Y and N)...
+------------------------------
+SUCCESS! FACTORS FOUND (Attempt 1):
+   p = 262139
+   q = 262151
+Verification: 262139 * 262151 = 68720000989
+------------------------------
+
+=================================================================
+FINAL RESULTS SUMMARY
+Key      N (12 digits)      p          q          Time (ns) 
+-----------------------------------------------------------------
+key1     643020317          25117      25601      41010558
+key2     17187209159        131129     131071     112098399
+key3     68720000989        262139     262151     58312102
+=================================================================
+
+------------------------- Scaling Ratios -------------------------
+
+Modulus (N)     | Bits   | Time (ns)    | L(N) Factor  | Ratio (T/L)
+---------------------------------------------------------------------------
+643020317       | 30     | 41010558     | 2472.41      | 1.66e+04
+17187209159     | 35     | 112098399    | 5594.81      | 2.00e+04
+68720000989     | 37     | 58312102     | 7782.47      | 7.49e+03
+
+=================================================================
+EXTRAPOLATION TO 32 BITS
+=================================================================
+Avg Implementation Constant (k):  1.4705e+04
+Theoretical Complexity L(2^32):  3.9884e+03
+-----------------------------------------------------------------
+Estimated Time (NanoSeconds):     5.8651e+07 ns
+Estimated Time (Seconds):         5.8651e-02 s
+Estimated Time (Minutes):         9.7751e-04 min
+Estimated Time (Hours):           1.6292e-05 hr
+Estimated Time (Days):            6.7883e-07 days
+Estimated Time (Weeks):           9.6975e-08 weeks
+Estimated Time (Months):          2.2302e-08 months
+Estimated Time (Years):           1.8585e-09 years
+
+=================================================================
+EXTRAPOLATION TO 64 BITS
+=================================================================
+Avg Implementation Constant (k):  1.4705e+04
+Theoretical Complexity L(2^64):  4.2957e+05
+-----------------------------------------------------------------
+Estimated Time (NanoSeconds):     6.3170e+09 ns
+Estimated Time (Seconds):         6.3170e+00 s
+Estimated Time (Minutes):         1.0528e-01 min
+Estimated Time (Hours):           1.7547e-03 hr
+Estimated Time (Days):            7.3113e-05 days
+Estimated Time (Weeks):           1.0445e-05 weeks
+Estimated Time (Months):          2.4021e-06 months
+Estimated Time (Years):           2.0017e-07 years
+
+=================================================================
+EXTRAPOLATION TO 128 BITS
+=================================================================
+Avg Implementation Constant (k):  1.4705e+04
+Theoretical Complexity L(2^128):  4.6110e+08
+-----------------------------------------------------------------
+Estimated Time (NanoSeconds):     6.7807e+12 ns
+Estimated Time (Seconds):         6.7807e+03 s
+Estimated Time (Minutes):         1.1301e+02 min
+Estimated Time (Hours):           1.8835e+00 hr
+Estimated Time (Days):            7.8480e-02 days
+Estimated Time (Weeks):           1.1211e-02 weeks
+Estimated Time (Months):          2.5784e-03 months
+Estimated Time (Years):           2.1487e-04 years
+
+=================================================================
+EXTRAPOLATION TO 256 BITS
+=================================================================
+Avg Implementation Constant (k):  1.4705e+04
+Theoretical Complexity L(2^256):  1.4627e+13
+-----------------------------------------------------------------
+Estimated Time (NanoSeconds):     2.1509e+17 ns
+Estimated Time (Seconds):         2.1509e+08 s
+Estimated Time (Minutes):         3.5849e+06 min
+Estimated Time (Hours):           5.9749e+04 hr
+Estimated Time (Days):            2.4895e+03 days
+Estimated Time (Weeks):           3.5565e+02 weeks
+Estimated Time (Months):          8.1791e+01 months
+Estimated Time (Years):           6.8159e+00 years
+
+=================================================================
+EXTRAPOLATION TO 512 BITS
+=================================================================
+Avg Implementation Constant (k):  1.4705e+04
+Theoretical Complexity L(2^512):  6.6869e+19
+-----------------------------------------------------------------
+Estimated Time (NanoSeconds):     9.8333e+23 ns
+Estimated Time (Seconds):         9.8333e+14 s
+Estimated Time (Minutes):         1.6389e+13 min
+Estimated Time (Hours):           2.7315e+11 hr
+Estimated Time (Days):            1.1381e+10 days
+Estimated Time (Weeks):           1.6259e+09 weeks
+Estimated Time (Months):          3.7392e+08 months
+Estimated Time (Years):           3.1160e+07 years
+
+=================================================================
+EXTRAPOLATION TO 1024 BITS
+=================================================================
+Avg Implementation Constant (k):  1.4705e+04
+Theoretical Complexity L(2^1024):  4.4237e+29
+-----------------------------------------------------------------
+Estimated Time (NanoSeconds):     6.5053e+33 ns
+Estimated Time (Seconds):         6.5053e+24 s
+Estimated Time (Minutes):         1.0842e+23 min
+Estimated Time (Hours):           1.8070e+21 hr
+Estimated Time (Days):            7.5293e+19 days
+Estimated Time (Weeks):           1.0756e+19 weeks
+Estimated Time (Months):          2.4737e+18 months
+Estimated Time (Years):           2.0614e+17 years
+
+=================================================================
+EXTRAPOLATION TO 2048 BITS
+=================================================================
+Avg Implementation Constant (k):  1.4705e+04
+Theoretical Complexity L(2^2048):  1.2113e+44
+-----------------------------------------------------------------
+Estimated Time (NanoSeconds):     1.7813e+48 ns
+Estimated Time (Seconds):         1.7813e+39 s
+Estimated Time (Minutes):         2.9688e+37 min
+Estimated Time (Hours):           4.9480e+35 hr
+Estimated Time (Days):            2.0617e+34 days
+Estimated Time (Weeks):           2.9452e+33 weeks
+Estimated Time (Months):          6.7735e+32 months
+Estimated Time (Years):           5.6446e+31 years
+['5.8651e+07', '6.3170e+09', '6.7807e+12', '2.1509e+17', '9.8333e+23', '6.5053e+33', '1.7813e+48']
