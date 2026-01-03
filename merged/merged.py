@@ -53,7 +53,7 @@ def mod_inverse(e, phi):
 def calculate_private_key(p, q, e):
     """
         Calculate the RSA private key d given primes p, q and public exponent e.
-        Returns d where (e * d) ≡ 1 (mod φ(n))
+        Returns d where (e * d) = 1 (mod phi(n))
     """
     phi = (p - 1) * (q - 1)
     d = mod_inverse(e, phi)
@@ -77,7 +77,7 @@ def rsa_decrypt(ciphertext, d, n):
 def verify_keys(p, q, e, d):    
     """
         Verify that the private key d is correct by checking:
-        (e * d) ≡ 1 (mod φ(n))
+        (e * d) = 1 (mod phi(n))
     """
     phi = (p - 1) * (q - 1)
     return (e * d) % phi == 1
@@ -382,6 +382,7 @@ def run_sieve(number):
     for attempt in range(20):
         # Shuffle ensures we get different linear dependencies if multiple exist
         random.shuffle(smooth_nums_list)
+        # print(smooth_nums_list)
         
         # Build Matrix
         matrix, x_values = build_exponent_matrix(smooth_nums_list, bound)
@@ -502,7 +503,7 @@ def analyze_qs_growth(scaling_ratios, target_bits=2048):
 
     avg_k = sum(scaling_ratios) / len(scaling_ratios)
     
-    # Corrected target calculations
+    # Target calculations
     n_target = 2**target_bits
     l_target = get_l_factor(n_target)
 
@@ -514,7 +515,7 @@ def analyze_qs_growth(scaling_ratios, target_bits=2048):
     est_hours   = est_sec / 3600
     est_days    = est_sec / (24 * 3600)
     est_weeks   = est_days / 7
-    est_months  = est_days / (365.25 / 12)   # ≈30.4375 days
+    est_months  = est_days / (365.25 / 12)   # about 30.4375 days
     est_years   = est_days / 365.25
 
 
@@ -574,7 +575,7 @@ def plot(values_list, start_size=32):
     # Formatting
     plt.title('Runtime', fontsize=14)
     plt.xlabel('Message Size (bits)', fontsize=12)
-    plt.ylabel('Tİme (ns)', fontsize=12)
+    plt.ylabel('Time (ns)', fontsize=12)
     plt.grid(True, which="both", linestyle='--', alpha=0.6)
     
     # Set x-axis ticks at your message sizes
@@ -602,7 +603,6 @@ def main():
     for i in sizes:
         est_times.append(analyze_qs_growth(scaling_ratios,i))
     print(est_times)
-
     plot(est_times)
 
 
@@ -625,7 +625,7 @@ if __name__ == "__main__":
     (a*b)^2 = (A*B) (mod N)
 
     A*B = Y^2
-    √(A*B) = √(((2^12)*(11^2)*(13^2)*(17^2)) = 155584 = Y
+    sqrt(A*B) = sqrt(((2^12)*(11^2)*(13^2)*(17^2)) = 155584 = Y
     a*b = 783*933 = 730539 = X
 
     X^2 = Y^2 (mod N)
@@ -639,7 +639,7 @@ if __name__ == "__main__":
         |
     Find GCD between this and N to find GCD(X-Y, N) = p = 1949
 
-    Divide N by p to find q = 539873÷1949 = 277
+    Divide N by p to find q = 539873/1949 = 277
 
     CONGRATULATIONS
     p = 1949
